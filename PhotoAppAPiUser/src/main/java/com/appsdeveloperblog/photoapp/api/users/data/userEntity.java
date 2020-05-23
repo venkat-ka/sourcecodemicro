@@ -29,8 +29,16 @@ public class userEntity implements Serializable {
 	private String userId;
 	@Column(nullable = false)	
 	private String encryptedPassword;
+	@Column(nullable = false)	
+	private String filename;
 	
 	
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	public long getId() {
 		return id;
 	}

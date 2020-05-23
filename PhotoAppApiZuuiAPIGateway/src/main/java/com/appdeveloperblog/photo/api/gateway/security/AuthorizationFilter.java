@@ -36,14 +36,14 @@ public class AuthorizationFilter extends BasicAuthenticationFilter{
 					throws IOException, ServletException {
 		//System.out.println(environment.getProperty("authorization.token.header.name"));
 		String authorizationHeader = req.getHeader(environment.getProperty("authorization.token.header.name"));
-		//System.out.println(authorizationHeader);
+		System.out.println(authorizationHeader);
 		if(authorizationHeader == null || !authorizationHeader.startsWith(environment.getProperty("authorization.token.header.prefix"))) {
 			chain.doFilter(req, res);
 			return;
 		}
 		
 		UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
-		System.out.println(req);
+		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		chain.doFilter(req, res);
 	
@@ -55,8 +55,15 @@ public class AuthorizationFilter extends BasicAuthenticationFilter{
 			return null;
 		}
 		String token = authorizationHeader.replace(environment.getProperty("authorization.token.header.prefix"),"");
-		System.out.println(token);
-		System.out.println(environment.getProperty("token.secret"));
+		//System.out.println(token);
+		//System.out.println(environment.getProperty("token.secret"));
+		
+		System.out.println("start zulllll");
+		System.out.println(environment.getProperty("eureka.client.service-url.defaultZone"));
+		System.out.println("mmnn");
+		System.out.println(environment.getProperty("api.zuul.actuator.url.path"));
+		System.out.println("start mm");
+		
 		String userId = Jwts.parser()
 				.setSigningKey(environment.getProperty("token.secret"))
 				.parseClaimsJws(token)

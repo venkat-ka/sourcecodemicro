@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class CreateUserRequestModel {
+	
 	@NotNull(message="FirstNAme cannot be null")
 	@Size(min=2,message="FirstName must not less than two charachter")
 	
@@ -21,6 +22,9 @@ public class CreateUserRequestModel {
 	@NotNull(message="Email Cannot be empty")
 	@Email
 	private String email;
+
+	private String filename;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -44,6 +48,22 @@ public class CreateUserRequestModel {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		
+		
+//		String fileName = fileStorageService.storeFile(filename);
+//
+//        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+//                .path("/downloadFile/")
+//                .path(fileName)
+//                .toUriString();
+//		this.filename = "Checking Filename"+fileDownloadUri;
+		System.out.println(filename);
+		this.filename = filename;//"Checking Filename";
 	}
 	
 

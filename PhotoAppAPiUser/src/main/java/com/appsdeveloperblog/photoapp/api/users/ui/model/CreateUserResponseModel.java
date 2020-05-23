@@ -5,6 +5,7 @@ public class CreateUserResponseModel {
 	private String lastName;
 	private String email;
 	private String userId;
+	private String filename;
 	public String getUserId() {
 		return userId;
 	}
@@ -28,6 +29,12 @@ public class CreateUserResponseModel {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	
 	

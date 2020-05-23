@@ -1,6 +1,11 @@
 package com.appsdeveloperblog.photoapp.api.users.shared;
 
 import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.appsdeveloperblog.photoapp.api.users.ui.model.AlbumResponseModel;
 
 public class UserDto implements Serializable{
 	/**
@@ -13,6 +18,25 @@ public class UserDto implements Serializable{
 	private String password;
 	private String userId;
 	private String encryptedPassword;
+	private List<AlbumResponseModel> albums;
+	private String filename;
+	
+	
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public List<AlbumResponseModel> getAlbums() {
+		return albums;
+	}
+
+	public void setAlbums(List<AlbumResponseModel> albums) {
+		this.albums = albums;
+	}
 
 	public String getFirstName() {
 		return firstName;

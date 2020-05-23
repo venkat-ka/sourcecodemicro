@@ -66,6 +66,7 @@ public void successfulAuthentication(HttpServletRequest req,
 //	
 	 System.out.println(environment.getProperty("token.expiration_time"));
 	 System.out.println(environment.getProperty("token.secret"));
+	 System.out.println(token);
 	 res.addHeader("token", token);
 	 res.addHeader("userId", userDetails.getUserId());
 }

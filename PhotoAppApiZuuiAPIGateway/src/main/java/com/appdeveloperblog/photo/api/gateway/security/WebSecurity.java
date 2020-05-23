@@ -23,6 +23,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+	
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 		http.authorizeRequests()
@@ -34,9 +35,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 		.anyRequest().authenticated()
 		.and()
 		.addFilter(new AuthorizationFilter(authenticationManager(), environment));
-		System.out.println("sttt ===");
-		System.out.println(environment.getProperty("api.h2console.url.path"));
-		System.out.println("==vvv");
+		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 }

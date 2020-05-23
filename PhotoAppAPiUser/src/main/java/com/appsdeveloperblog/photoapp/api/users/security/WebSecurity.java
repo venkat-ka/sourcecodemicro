@@ -45,6 +45,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	
 
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+		System.out.println("<!!!!!!!!!!!!!!!!!!!!!--!!!!!!!!!!>");
+		System.out.println(usersService);
+		System.out.println("<------------------->");
 		auth.userDetailsService(usersService).passwordEncoder(bCryptPasswordEncoder);
 		//auth.userDetailsService(userDetailsService).password
 	}
