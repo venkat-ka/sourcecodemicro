@@ -83,13 +83,15 @@ public class UserController {
 		UserDto createUser = userService.createUser(userDto);
 		
 		CreateUserResponseModel reurnValue = modelMapper.map(createUser, CreateUserResponseModel.class);
-		
+		System.out.println("first st");
 		System.out.println(fileN);
 		if(fileN != null) {
+			System.out.println("se st");
 		String path =  fileN.getOriginalFilename();
 		String fExt = Files.getFileExtension(path);
 		System.out.println(fExt);
-		File ConvertFile = new File("/home/venkatesh/uploadrestfile/"+createUser.getUserId()+"-uploaded");
+		System.out.println("th st");
+		File ConvertFile = new File("/Users/venkateshkrishnakumar/Desktop/dev/uploadrestfile/"+createUser.getUserId()+"-uploaded");
 		//https://stackoverflow.com/questions/23446928/spring-boot-uploading-files-path
 		//System.out.println(fileN.getName());
 		ConvertFile.createNewFile();

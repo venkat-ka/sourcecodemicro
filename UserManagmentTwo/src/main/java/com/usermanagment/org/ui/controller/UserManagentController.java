@@ -48,7 +48,7 @@ import com.usermanagment.org.userservice.UserManagmentService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import jdk.internal.jline.internal.Log;
+
 
 
 @RestController
@@ -60,8 +60,6 @@ public class UserManagentController {
 	
 	@Autowired
 	StoreUserService createstoreuser;
-	
-	private static final Logger LOG = Logger.getLogger(UserManagentController.class.getName());
 	
 	@Autowired
 	private Environment env;
@@ -76,7 +74,7 @@ public class UserManagentController {
 //	}
 	
 	@PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-	public ResponseEntity<CreateResponseUserManagment> createManagment(@RequestParam(value="fileUpl") MultipartFile fileUpl, @Valid CreateRequestUserManagment userDetails, @RequestHeader(value="Authorization") String Auth)throws IOException {
+	public ResponseEntity<CreateResponseUserManagment> createManagment(@RequestParam(value="fileUpl", required = false) MultipartFile fileUpl, @Valid CreateRequestUserManagment userDetails, @RequestHeader(value="Authorization") String Auth)throws IOException {
 		
 		String token = Auth.replace("Bearer", "");
 	
@@ -103,7 +101,7 @@ public class UserManagentController {
 			String path =  fileUpl.getOriginalFilename();
 			String fExt = Files.getFileExtension(path);
 			System.out.println(fExt);
-			File ConvertFile = new File("/home/venkatesh/uploadrestfile/"+createUser.getFullname()+"-uploaded");
+			File ConvertFile = new File("/Users/venkateshkrishnakumar/Desktop/dev/uploadrestfile/"+createUser.getFullname()+"-uploaded");
 			//https://stackoverflow.com/questions/23446928/spring-boot-uploading-files-path
 			//System.out.println(fileN.getName());
 			ConvertFile.createNewFile();
