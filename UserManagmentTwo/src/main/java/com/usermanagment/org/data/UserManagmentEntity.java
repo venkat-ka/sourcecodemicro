@@ -40,6 +40,10 @@ public class UserManagmentEntity implements Serializable {
 	
 	@Column(nullable = false, length=100, unique = true)
 	private String userId;
+//	
+//	@OneToOne(mappedBy = "usermanagment")
+//	private StoreUserEntity StoreUser;
+	
 	
 //	@OneToOne(mappedBy = "UserManagmentEntity", cascade = CascadeType.ALL,
 //            fetch = FetchType.LAZY, optional = false)
@@ -66,9 +70,29 @@ public class UserManagmentEntity implements Serializable {
 //		this.storeEntity = storeEntity;
 //	}
 	
+//	public StoreUserEntity getStore_mangment() {
+//		return store_mangment;
+//	}
+//	public void setStore_mangment(StoreUserEntity store_mangment) {
+//		this.store_mangment = store_mangment;
+//	}
+	
+	
+//	public StoreUserEntity getStoreUser() {
+//		return StoreUser;
+//	}
+//	public void setStoreUser(StoreUserEntity storeUser) {
+//		StoreUser = storeUser;
+//	}
 	public String getUserId() {
 		return userId;
 	}
+//	public StoreUserEntity getStore_mangment() {
+//		return store_mangment;
+//	}
+//	public void setStore_mangment(StoreUserEntity store_mangment) {
+//		this.store_mangment = store_mangment;
+//	}
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}

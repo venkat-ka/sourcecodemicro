@@ -18,6 +18,7 @@ import javax.persistence.Table;
 @Table(name="StoreUser")
 public class StoreUserEntity implements Serializable {
 
+
 	/**
 	 * 
 	 */
@@ -36,9 +37,9 @@ public class StoreUserEntity implements Serializable {
 	@Column(nullable = false, length=150)
 	private String salary;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval=true)
     @JoinColumn(name = "usermanagment_userid", referencedColumnName = "userId")
-	private UserManagmentEntity UserManagmentEntity;
+	private UserManagmentEntity usermanagment;
 
 	
 
@@ -87,13 +88,24 @@ public class StoreUserEntity implements Serializable {
 		this.id = id;
 	}
 
-	public UserManagmentEntity getusermanagmententity() {
-		return UserManagmentEntity;
+	public UserManagmentEntity getUsermanagment() {
+		return usermanagment;
 	}
 
-	public void setUsermanagment(UserManagmentEntity usermanagmententity) {
-		this.UserManagmentEntity = usermanagmententity;
+	public void setUsermanagment(UserManagmentEntity usermanagment) {
+		this.usermanagment = usermanagment;
 	}
+	
+	
+//
+//	public UserManagmentEntity getUserManagmentEntity() {
+//		return userManagmentEntity;
+//	}
+//
+//	public void setUserManagmentEntity(UserManagmentEntity userManagmentEntity) {
+//		this.userManagmentEntity = userManagmentEntity;
+//	}
+
 
 
 
